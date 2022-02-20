@@ -10,16 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_02_20_125730) do
+ActiveRecord::Schema.define(version: 2022_02_20_131218) do
 
-  create_table "event_attendances", force: :cascade do |t|
-    t.integer "user_id", null: false
-    t.integer "event_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["event_id"], name: "index_event_attendances_on_event_id"
-    t.index ["user_id"], name: "index_event_attendances_on_user_id"
-  end
+# Could not dump table "event_attendances" because of following StandardError
+#   Unknown type 'attendee_id' for column 'user_id'
 
   create_table "events", force: :cascade do |t|
     t.string "name"
