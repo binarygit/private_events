@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_02_20_131218) do
+ActiveRecord::Schema.define(version: 2022_02_20_140639) do
 
 # Could not dump table "event_attendances" because of following StandardError
 #   Unknown type 'attendee_id' for column 'user_id'
@@ -21,7 +21,6 @@ ActiveRecord::Schema.define(version: 2022_02_20_131218) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "creator_id"
-    t.text "description"
   end
 
   create_table "users", force: :cascade do |t|

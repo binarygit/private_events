@@ -12,6 +12,7 @@ class EventsController < ApplicationController
   def create
     @event = current_user.created_events.build(form_params)
     if @event.save
+      @event.event_attendances.create(user_id: current_user[:id])
       flash.notice = 'Event successfully created'
       redirect_to root_path
     else
@@ -21,7 +22,7 @@ class EventsController < ApplicationController
 
   private
   def form_params
-    params.require(:event).permit(:name, :date, :description)
+    params.require(:event).permit(:name, :date)
   end
 
   def authenticate_user

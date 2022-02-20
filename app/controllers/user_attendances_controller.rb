@@ -1,2 +1,0 @@
-class UserAttendancesController < ApplicationController
-end
