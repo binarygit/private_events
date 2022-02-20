@@ -1,7 +1,26 @@
-<h1>Events</h1>
+<div>
+  <h1>Finished Events</h1>
+  <% unless @finished_events.empty? %>
+    <% @finished_events.each do |event| %>
+      <ul>
+        <li><%= event.name %>, on: <%= event.date %></li>
+      </ul>
+    <% end %>
+  <% else %>
+    <p>No finished events to show</p>
+  <% end %>
+</div>
 
-<% @events.each do |event| %>
-  <ul>
-    <li><%= event.name %>, created_by: <%= event.creator.name %>, on: <%= event.date %></li>
-  </ul>
-<% end %>
+
+<div>
+  <h1>Upcoming Events</h1>
+  <% unless @upcoming_events.empty? %>
+    <% @upcoming_events.each do |event| %>
+      <ul>
+        <li><%= event.name %>, created_by: <%= event.creator.name %>, on: <%= event.date %></li>
+      </ul>
+    <% end %>
+  <% else %>
+    <p>No upcoming events to show</p>
+  <% end %>
+</div>

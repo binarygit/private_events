@@ -1,7 +1,8 @@
 class EventsController < ApplicationController
   before_action :authenticate_user, only: :new
   def index
-    @events = Event.all
+    @finished_events = Event.where("date < ?", Date.today)
+    @upcoming_events = Event.where("date >= ?", Date.today)
   end
 
   def new
@@ -20,7 +21,7 @@ class EventsController < ApplicationController
 
   private
   def form_params
-    params.require(:event).permit(:name, :date)
+    params.require(:event).permit(:name, :date, :description)
   end
 
   def authenticate_user

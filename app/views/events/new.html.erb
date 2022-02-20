@@ -10,6 +10,14 @@
   </div>
 
   <div>
+    <%= form.label :description %>
+    <%= form.text_area :description %>
+    <% @event.errors.full_messages_for(:description).each do |message| %>
+      <p class='form_errors'><%= message %></p>
+    <% end %>
+  </div>
+
+  <div>
     <%= form.label :date %>
     <%= form.date_field :date %>
     <% @event.errors.full_messages_for(:date).each do |message| %>

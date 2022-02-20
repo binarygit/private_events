@@ -3,7 +3,7 @@ class Event < ApplicationRecord
   belongs_to :creator, class_name: 'User'
 
   validates :name, uniqueness: true, presence: true
-  validates :body, presence: true
+  validates :description, presence: true, length: { minimum: 10 } 
   validates :date, presence: true
   validate :invalid_date
 
