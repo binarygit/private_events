@@ -8,6 +8,9 @@ class Event < ApplicationRecord
   validates :date, presence: true
   validate :invalid_date
 
+  scope :past, -> {where("date < ?", Date.today)}
+  scope :upcoming, -> {where("date >= ?", Date.today)}
+
   private
 
   def invalid_date
