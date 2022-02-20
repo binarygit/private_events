@@ -30,6 +30,11 @@
     <ul>
       <li><%= link_to 'Home', root_path %></li>
       <li><%= link_to 'SignUp', signup_path %></li>
+      <li><%= link_to 'LogIn', login_path %></li>
+      <li><%= link_to 'LogOut', logout_path, method: :delete %></li>
+      <% if current_user %>
+        <li>Welcome, <%= current_user[:name] %></li>
+      <% end %>
     </ul>
   </nav>
 </header>

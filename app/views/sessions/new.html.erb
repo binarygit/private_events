@@ -1,1 +1,15 @@
 <h1>Login</h1>
+
+<%= form_with scope: :session, url: login_path do |f| %>
+  <div>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+  </div>
+
+  <div>
+  <%= f.label :password %>
+  <%= f.password_field :password %>
+  </div>
+
+  <%= f.submit value: 'Login' %>
+<% end %>
