@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(version: 2022_02_20_113247) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "creator_id"
-    t.text "body"
+    t.text "description"
   end
 
   create_table "users", force: :cascade do |t|
