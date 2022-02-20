@@ -22,5 +22,3 @@ test:
 
 production:
   url: <%= ENV.fetch('DATABASE_URL', '').sub(/^postgres/, "postgis") %>
-  <<: *default
-  database: db/production.sqlite3
