@@ -10,10 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_02_20_140639) do
-
-# Could not dump table "event_attendances" because of following StandardError
-#   Unknown type 'attendee_id' for column 'user_id'
+ActiveRecord::Schema.define(version: 2022_02_20_151916) do
 
   create_table "events", force: :cascade do |t|
     t.string "name"
@@ -31,7 +28,5 @@ ActiveRecord::Schema.define(version: 2022_02_20_140639) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  add_foreign_key "event_attendances", "events"
-  add_foreign_key "event_attendances", "users"
   add_foreign_key "events", "users", column: "creator_id"
 end
