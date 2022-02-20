@@ -1,0 +1,21 @@
+<h1>Create an Event</h1>
+
+<%= form_with model: @event do |form| %>
+  <div>
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+    <% @event.errors.full_messages_for(:name).each do |message| %>
+      <p class='form_errors'><%= message %></p>
+    <% end %>
+  </div>
+
+  <div>
+    <%= form.label :date %>
+    <%= form.date_field :date %>
+    <% @event.errors.full_messages_for(:date).each do |message| %>
+      <p class='form_errors'><%= message %></p>
+    <% end %>
+  </div>
+
+  <%= form.submit %>
+<% end %>

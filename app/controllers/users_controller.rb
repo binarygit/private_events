@@ -1,9 +1,12 @@
 class UsersController < ApplicationController
+  before_action :authenticate_user
+
   def new
     @user = User.new
   end
 
   def create
+    params[:user][:name].capitalize!
     @user = User.new(form_params)
     if @user.save
       flash.notice = 'User successfully created'

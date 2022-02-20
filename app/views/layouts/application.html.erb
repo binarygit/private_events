@@ -13,32 +13,33 @@
   <body>
     <% 
         colorize = lambda {|type| {notice: type.eql?('notice'), alert: type.eql?('alert')} }
-  %>
-<% if flash %>
-  <% flash.each do |type, message| %>
-    <!--
-    <p class="<%= class_names(notice: type.eql?('notice'), alert: type.eql?('alert')) %>">
-    -->
-    <p class="<%= class_names(colorize.call(type)) %>">
-    <%= message %>
-    </p>
-  <% end %>
-<% end %>
-
-<header>
-  <nav>
-    <ul>
-      <li><%= link_to "Home", root_path %></li>
-      <% if logged_in? %>
-        <li><%= link_to 'LogOut', logout_path, method: :delete %></li>
-        <li>Welcome, <%= current_user[:name] %></li>
-      <% else %>
-        <li><%= link_to 'SignUp', signup_path %></li>
-        <li><%= link_to 'LogIn', login_path %></li>
+      %>
+    <% if flash %>
+      <% flash.each do |type, message| %>
+        <!--
+          <p class="<%= class_names(notice: type.eql?('notice'), alert: type.eql?('alert')) %>">
+        -->
+        <p class="<%= class_names(colorize.call(type)) %>">
+        <%= message %>
+        </p>
       <% end %>
-    </ul>
-  </nav>
-</header>
-<%= yield %>
+    <% end %>
+
+    <header>
+      <nav>
+        <ul>
+          <li><%= link_to "Home", root_path %></li>
+          <% if logged_in? %>
+            <li><%= link_to 'Logout', logout_path, method: :delete %></li>
+            <li><%= link_to 'New Event', new_event_path %></li>
+            <li>Welcome, <%= current_user[:name] %></li>
+          <% else %>
+            <li><%= link_to 'Sign up', signup_path %></li>
+            <li><%= link_to 'Login', login_path %></li>
+          <% end %>
+        </ul>
+      </nav>
+    </header>
+    <%= yield %>
   </body>
 </html>
