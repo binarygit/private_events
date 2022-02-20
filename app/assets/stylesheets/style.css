@@ -1,0 +1,11 @@
+.form_errors {
+  color: red;
+}
+
+.notice {
+  color: green;
+}
+
+.alert {
+  color: red;
+}

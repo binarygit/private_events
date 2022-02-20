@@ -11,13 +11,28 @@
   </head>
 
   <body>
-    <header>
-      <nav>
-        <ul>
-          <li><%= link_to 'SignUp', root_path %></li>
-        </ul>
-      </nav>
-    </header>
-    <%= yield %>
+    <% 
+        colorize = lambda {|type| {notice: type.eql?('notice'), alert: type.eql?('alert')} }
+  %>
+<% if flash %>
+  <% flash.each do |type, message| %>
+    <!--
+    <p class="<%= class_names(notice: type.eql?('notice'), alert: type.eql?('alert')) %>">
+    -->
+    <p class="<%= class_names(colorize.call(type)) %>">
+    <%= message %>
+    </p>
+  <% end %>
+<% end %>
+
+<header>
+  <nav>
+    <ul>
+      <li><%= link_to 'Home', root_path %></li>
+      <li><%= link_to 'SignUp', signup_path %></li>
+    </ul>
+  </nav>
+</header>
+<%= yield %>
   </body>
 </html>
